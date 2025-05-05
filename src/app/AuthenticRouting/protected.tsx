@@ -26,11 +26,11 @@ function ProtectedRoute(WrappedComponent: ComponentType) {
       );
 
     return (
-      <>
+      <div className="max-w-[1700px] mx-auto">
         <Header />
         <WrappedComponent />
         <Footer />
-      </>
+      </div>
     );
   };
 
