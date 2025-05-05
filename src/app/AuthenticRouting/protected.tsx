@@ -18,7 +18,7 @@ function ProtectedRoute(WrappedComponent: ComponentType) {
       }
     }, [user, userLoading, router]);
 
-    if (userLoading) return <div>Loading...</div>;
+    if (!user?.email && userLoading) return <div>Loading...</div>;
 
     return (
       <>
