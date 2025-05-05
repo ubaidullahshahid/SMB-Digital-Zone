@@ -18,7 +18,12 @@ function ProtectedRoute(WrappedComponent: ComponentType) {
       }
     }, [user, userLoading, router]);
 
-    if (!user?.email && userLoading) return <div>Loading...</div>;
+    if (!user?.email || userLoading)
+      return (
+        <div className="flex justify-center items-center h-screen">
+          Loading...
+        </div>
+      );
 
     return (
       <>
