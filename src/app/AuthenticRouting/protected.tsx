@@ -5,10 +5,8 @@ import { RootState } from "@/store/store";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
-function ProtectedRoute<P extends JSX.IntrinsicAttributes>(
-  WrappedComponent: ComponentType<P>
-) {
-  const ComponentWithAuth = (props: P) => {
+function ProtectedRoute(WrappedComponent: ComponentType) {
+  const ComponentWithAuth = () => {
     const { user, userLoading } = useSelector(
       (state: RootState) => state.currentUser
     );
@@ -25,7 +23,7 @@ function ProtectedRoute<P extends JSX.IntrinsicAttributes>(
     return (
       <>
         <Header />
-        <WrappedComponent {...props} />
+        <WrappedComponent />
         <Footer />
       </>
     );

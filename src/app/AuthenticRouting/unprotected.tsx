@@ -6,10 +6,8 @@ import { useSelector } from "@/store/store";
 import { ComponentType, JSX } from "react";
 import { RootState } from "@/store/store";
 
-function UnProtectedRoute<P extends JSX.IntrinsicAttributes>(
-  WrappedComponent: ComponentType<P>
-) {
-  const ComponentWithAuth = (props: P) => {
+function UnProtectedRoute(WrappedComponent: ComponentType) {
+  const ComponentWithAuth = () => {
     const router = useRouter();
     const { user, userLoading } = useSelector(
       (state: RootState) => state.currentUser
@@ -29,7 +27,7 @@ function UnProtectedRoute<P extends JSX.IntrinsicAttributes>(
       );
     }
 
-    return <WrappedComponent {...props} />;
+    return <WrappedComponent />;
   };
 
   return ComponentWithAuth;

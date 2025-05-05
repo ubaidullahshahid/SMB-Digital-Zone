@@ -1,4 +1,1 @@
-export const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://smb-digital-zone-backend.vercel.app/api"
-    : "http://localhost:5000/api";
+export const BASE_URL = "https://smb-digital-zone-backend.vercel.app/api";
